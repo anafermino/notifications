@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         createNotificationChannel()
 
-        // Pending intents conceito do android que permite que outro app execute um trecho de código
+        // Pending intents = conceito do android que permite que outro app execute um trecho de código
         // do nosso app. Nesse caso, é necessário para que, ao clicar na notificação, o sistema do
         // android execute esse código para abrir o nosso app.
         val intent = Intent(this, MainActivity::class.java)
@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             .setSmallIcon(R.drawable.ic_stat_name)
             .setPriority(NotificationCompat.PRIORITY_HIGH) // ordem de prioridade que o sistema android vai apresentar as notificações
             .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
             .build()
 
         val notificationManager = NotificationManagerCompat.from(this)
